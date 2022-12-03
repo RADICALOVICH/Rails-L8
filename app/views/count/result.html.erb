@@ -1,0 +1,25 @@
+<% if @ok %>
+
+  <h1>Result</h1>
+  <h2>Input data: <%=@array.join(',')%></h2>
+  <table border = '1'>
+    <tr>
+      <th style="text-align: center">Number</th>
+      <th style="text-align: center">Squares</th>
+    </tr>
+    <% @result_array.each_with_index do |n,i| %>
+      <tr>
+        <td style="text-align: center"><%= i+1 %></td>
+        <td style="text-align: center"><%= n.join(",") %></td>
+      </tr>
+    <% end %>
+  </table>
+  <h3>Количество последовательностей: <%= @result_array.size %></h3>
+  <h3>Самая длинная последовательность: <%= @result_array.max_by(&:length).join(' ') %></h3>
+  <br>
+  <a href='/count/input'>Back</a>
+<% else %>
+ <h1>В последовательности нет квадратов</h1>
+ <br>
+ <a href='/count/input'>Back</a>
+<% end %>
