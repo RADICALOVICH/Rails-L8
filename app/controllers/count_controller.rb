@@ -1,14 +1,13 @@
+# frozen_string_literal: true
+
+# Count Controller
 class CountController < ApplicationController
   include CountHelper
   before_action :validate_string, only: :result
   def input; end
 
   def result
-    @ok = true
     @result_array = squares(@array)
-    @ok = false if @result_array == []
-    @max_array = @result_array.max_by(&:length)
-    @result_array.size
   end
 
   private
